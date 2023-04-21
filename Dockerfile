@@ -6,9 +6,10 @@ ARG BUILD_DATE
 ARG MIN_MEM=2G
 ARG MAX_MEM=2G
 
-COPY src/requirements.txt .
 WORKDIR /src
+COPY src/requirements.txt .
 RUN pip install -r requirements.txt
+COPY . .
 EXPOSE 5000
 #Execution
 CMD python ./app.py
