@@ -39,25 +39,12 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
   docker:
-      runs-on: ubuntu-latest
-      steps:
-        -
-          name: Checkout
-          uses: actions/checkout@v3
-        -
-          name: Set up Docker Buildx
-          uses: docker/setup-buildx-action@v2
-        -
-          name: Build
-          uses: docker/build-push-action@v4
-          with:
-            context: .
-            load: true
-            tags: myimage:latest
-        -
-          name: Inspect
-          run: |
-            docker image inspect myimage:latest
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     #- name: Test with pytest
     #  run: |
     #    pytest
