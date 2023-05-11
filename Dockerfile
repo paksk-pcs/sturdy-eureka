@@ -11,5 +11,5 @@ COPY src/requirements.txt .
 RUN pip install -r requirements.txt
 COPY . .
 EXPOSE 5000
-#ExecutionW
+#Execution
 CMD python ./app.py
