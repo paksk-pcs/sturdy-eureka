@@ -20,5 +20,7 @@ jobs:
           echo "testing"
           cd
           cd Documents/GitHub/kubernetes-mongodb/
+          ls
+          minikube kubectl -- apply -f .
         shell: bash
 
