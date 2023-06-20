@@ -1,0 +1,21 @@
+name: push to local minikube test
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build-and-push-image:
+    runs-on: self-hosted
+    permissions:
+      contents: read
+      packages: write
+      
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Run script file
+        run: ls
+        shell: bash
+
